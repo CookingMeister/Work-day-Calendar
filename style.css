@@ -2,13 +2,14 @@ body {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   background-color: rgb(214, 228, 240);
+  color: midnightblue;
 }
 
 textarea {
   background: transparent;
   border: none;
   resize: none;
-  color: #000000;
+  color: midnightblue;
   border-left: 1px solid black;
   padding: 10px;
 }
@@ -27,7 +28,7 @@ textarea {
 
 .hour {
   background-color: white;
-  color: #000000;
+  color: midnightblue;
   border-radius: 15px 0 0 15px;
   font-size: large;
 }
@@ -59,7 +60,6 @@ textarea {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  /* background-color: #06aed5; */
   background-color: rgb(248, 115, 91);
   color: white;
 }
@@ -68,7 +68,12 @@ textarea {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
 }
-
+.text-center {
+  text-align: center;
+}
+.fa-check {
+  padding-left: 0.5rem;
+}
 @media only screen and (max-width: 900px) {
   .hour {
    font-size: 90%;

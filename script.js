@@ -3,7 +3,9 @@ $(window).on("DOMContentLoaded", () => {
   // displays current date and time
   function updateDateTime() {
     let today = dayjs();
-    $("#currentDay").text(today.format("dddd | MMM. D, YYYY | h:mm A"));
+    $("#currentDay")
+      .css({ color: "rgb(248, 115, 91)", "font-size": "125%" })
+      .text(today.format("dddd | MMM. D, YYYY | h:mm A"));
   }
   setInterval(updateDateTime, 1000);
 
@@ -25,6 +27,35 @@ $(window).on("DOMContentLoaded", () => {
   });
   // Save button event listener
   $(".saveBtn").on("click", function () {
+    const $icon = $(this).find(".fas");  
+
+    $icon.addClass("fa-pulse");
+  
+    setTimeout(function(){
+  
+      $icon.removeClass("fa-pulse");
+  
+    }, 2000);
+   
+    
+    var newP = $("<p>");
+
+    // add content
+    let html = '<div class="text-center">';
+    html += "<em>-- You\'ve saved your event details!</em>";
+    html += "<i class='fas fa-check' style='color: #13c940;'></i>"
+    html += "</div>";
+    newP.html(html);
+    // select existing div
+    var currentDiv = $(".container-lg");
+
+    // insert new div before existing div
+    newP.insertBefore(currentDiv);
+    setTimeout(function () {
+      // remove div after 2 seconds
+      newP.remove();
+    }, 2000);
+
     let events = JSON.parse(localStorage.getItem("events")) || [];
     // set values
     let hour = this.parentNode.id;
