@@ -27,12 +27,13 @@ $(window).on("DOMContentLoaded", () => {
   });
   // Save button event listener
   $(".saveBtn").on("click", function () {
+    $(this).attr("disabled", true);
     const $icon = $(this).find(".fas");  
-
+   
     $icon.addClass("fa-pulse");
   
     setTimeout(function(){
-  
+      $(".saveBtn").attr("disabled", false);
       $icon.removeClass("fa-pulse");
   
     }, 2000);
