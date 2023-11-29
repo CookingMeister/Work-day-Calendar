@@ -7,11 +7,12 @@ $(window).on("DOMContentLoaded", () => {
       .css("font-size", "115%")
       .text(today.format("dddd | MMM. D, YYYY | h:mm A"));
   }
+
+  // Update date and time every second
   setInterval(updateDateTime, 1000);
 
-  // assigns a styling class of past, present or future to each time block
+  // Assign a styling class of past, present or future to each time block
   const currentHour = dayjs().hour();
-
   $(".time-block").each(function () {
     const blockHour = parseInt($(this).attr("id").split("-")[1]);
 
@@ -25,54 +26,51 @@ $(window).on("DOMContentLoaded", () => {
       $(this).addClass("future"); // blue
     }
   });
+
   // Save button event listener
   $(".saveBtn").on("click", function () {
     $(this).attr("disabled", true);
-    const $icon = $(this).find(".fas");  
-   
+
+    const $icon = $(this).find(".fas");
+
     $icon.addClass("fa-pulse");
-  
-    setTimeout(function(){
+
+    setTimeout(function () {
       $(".saveBtn").attr("disabled", false);
       $icon.removeClass("fa-pulse");
-  
     }, 2000);
-   
-    
-    var newP = $("<p>");
 
-    // add content
+    let newP = $("<p>");
+    // Add content
     let html = '<div class="text-center">';
-    html += "<em>-- You\'ve saved your event details!</em>";
-    html += "<i class='fas fa-check' style='color: #13c940;'></i>"
+    html += "<em>-- You saved your event details!</em>";
+    html += "<i class='fas fa-check' style='color: #13c940;'></i>";
     html += "</div>";
     newP.html(html);
-    // select existing div
-    var currentDiv = $(".container-lg");
 
-    // insert new div before existing div
+    const currentDiv = $(".container-lg");
     newP.insertBefore(currentDiv);
+
     setTimeout(function () {
-      // remove div after 2 seconds
+      // Remove div after 2 seconds
       newP.remove();
     }, 2000);
 
     let events = JSON.parse(localStorage.getItem("events")) || [];
-    // set values
+    // Set values
     let hour = this.parentNode.id;
-    console.log(hour);
     let text = $(this).prev().val();
-    console.log(text);
-    // populate object array with 'hour' as the key and 'text' as the value
+    // Populate object array with 'hour' as the key and 'text' as the value
     events.push({
       [hour]: text,
     });
-    // set
+    // Set
     localStorage.setItem("events", JSON.stringify(events));
   });
-  // load
+
+  // Load
   let events = JSON.parse(localStorage.getItem("events"));
-  // event details automatically populated into corresponding textareas
+  // Event details automatically populated into corresponding textareas
   if (events) {
     events.forEach((event) => {
       let key = Object.keys(event);
