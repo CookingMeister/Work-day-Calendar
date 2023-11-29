@@ -5,6 +5,11 @@ body {
   color: midnightblue;
 }
 
+.light {
+ 
+ color: red;
+}
+
 textarea {
   background: transparent;
   border: none;
@@ -31,6 +36,7 @@ textarea {
   color: midnightblue;
   border-radius: 15px 0 0 15px;
   font-size: large;
+  position: relative;
 }
 
 .hour:before {
@@ -39,6 +45,13 @@ textarea {
   margin-top: -17px;
   width: 115%;
   border-top: 1px solid black;
+}
+
+.hour p {
+  position: absolute;
+  top: 2rem;
+  text-align: center;
+  width:80%;
 }
 
 .past {

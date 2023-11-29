@@ -4,7 +4,7 @@ $(window).on("DOMContentLoaded", () => {
   function updateDateTime() {
     let today = dayjs();
     $("#currentDay")
-      .css({ color: "rgb(248, 115, 91)", "font-size": "125%" })
+      .css("font-size", "115%")
       .text(today.format("dddd | MMM. D, YYYY | h:mm A"));
   }
   setInterval(updateDateTime, 1000);
