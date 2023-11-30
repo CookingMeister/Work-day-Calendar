@@ -34,7 +34,7 @@ Here is an image showing the appearance of the application:
 
 ![work day calendar showing current day, time and colored time slots for each hour](./img/calendar.png)
 
-* Here is a link the the live application: [click here](www.cookingmeister.github.io/work-day-calendar)
+* Here is a link the the live application: [click here](https://cookingmeister.github.io/work-day-calendar/)
 
 ## Credits
 
